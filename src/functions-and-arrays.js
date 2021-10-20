@@ -283,7 +283,6 @@ function greatestProduct(arr) {
   return fourInARow;
 }
 
-greatestProduct(matrix);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
