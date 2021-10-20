@@ -1,41 +1,145 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  // Check if Input is valid, if not let's save resources
+  if (arr.length === 0) {
+    console.log('Invalid input. Please set an valid Array as argument');
+    return null;
+  }
 
+  let longestWord = '';
 
+  // loop thought Users Input
+  for (let i = 0; i < arr.length; i++) {
+    // Compare the length of Input and current longestWord's length
+    if (arr[i].length > longestWord.length) {
+      // If it's longer, save
+      longestWord = arr[i];
+    }
+  }
+
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  // Check if Input is valid, if not let's save resources
+  if (arr.length === 0) {
+    console.log('Invalid input. Please set an valid Array as argument');
+    return 0;
+  }
 
+  // create a new Variable to store the sum
+  let sumArr = 0;
 
+  for (let i = 0; i < arr.length; i++) {
+    // increase the new Variable with each Item of the Input
+    sumArr += arr[i];
+  }
+
+  return sumArr;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  // Check if Input is valid, if not let's save resources
+  if (typeof arr !== 'object') {
+    return 0;
+  }
 
+  // create a new Variable to store the sum
+  let sumArr = 0;
 
+  for (let i = 0; i < arr.length; i++) {
+    // increase the new Variable with each Item of the Input
+    if (typeof arr[i] === 'string') {
+      sumArr += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+      sumArr += arr[i];
+    } else if (typeof arr[i] === 'number') {
+      sumArr += arr[i];
+    } else {
+      throw "Unsupported data type sir or ma'am";
+    }
+  }
+
+  return sumArr;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  // Check if Input is valid, if not let's save resources
+  if (arr.length === 0) {
+    return null;
+  }
 
+  let average = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    average += arr[i];
+  }
+
+  return average / arr.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  // Check if Input is valid, if not let's save resources
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let average = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    average += arr[i].length;
+  }
+
+  return average / arr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  // Check if Input is valid, if not let's save resources
+  if (arr.length === 0) {
+    return null;
+  }
+
+  // create a new Variable to store the sum
+  let average = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    // increase the new Variable with each Item of the Input
+    if (typeof arr[i] === 'string') {
+      average += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+      average += arr[i];
+    } else if (typeof arr[i] === 'number') {
+      average += arr[i];
+    } else {
+      throw "Unsupported data type sir or ma'am";
+    }
+  }
+
+  return Math.round((average / arr.length) * 100) / 100;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +156,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
 
+  let uniqueWords = [];
 
+  for (let i = 0; i < arr.length; i++) {
+    // Check if the arr[i] is an Item of uniqueWords
+    // arr.indexOf() returns -1, if it's not an Item
+    if (uniqueWords.indexOf(arr[i]) === -1) {
+      // So if it's not an Item push it to
+      uniqueWords.push(arr[i]);
+    }
+  }
+
+  return uniqueWords;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, str) {
+  if (arr.length === 0) {
+    return null;
+  }
 
-
+  return arr.includes(str);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +201,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, str) {
+  let count = 0;
 
+  for (let i = 0; i < arr.length; i++) {
+    count += arr[i] === str;
+  }
 
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +235,55 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let fourInARow = 0;
+  let lastLoop = 0;
 
+  for (let i = 0; i < arr.length - 4; i++) {
+    for (let j = 0; j < arr[i].length - 4; j++) {
+      let xAxis = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+      let yAxis = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
+      let dOne = arr[i][j + 3] * arr[i + 1][j + 2] * arr[i + 2][j + 1] * arr[i + 3][j];
+      let dTwo = arr[i + 3][j + 3] * arr[i + 2][j + 2] * arr[i + 1][j + 1] * arr[i][j];
 
+      // xAxis = arr[16][16] * arr[16][17] * arr[16][18] * arr[16][19];
+      // yAxis = arr[16][16] * arr[17][16] * arr[18][16] * arr[19][16];
+      // dOne = arr[16][19] * arr[17][18] * arr[18][17] * arr[19][16];
+      // dTwo = arr[19][19] * arr[18][18] * arr[17][17] * arr[16][16];
 
+      if (xAxis > fourInARow) {
+        fourInARow = xAxis;
+      } else if (yAxis > fourInARow) {
+        fourInARow = yAxis;
+      } else if (dOne > fourInARow) {
+        fourInARow = dOne;
+      } else if (dTwo > fourInARow) {
+        fourInARow = dTwo;
+      }
+    }
+    lastLoop = i;
+  }
+
+  for (let i = arr.length - 1; i > lastLoop; i--) {
+    for (let j = arr.length[i] - 1; j > lastLoop; j--) {
+      let xAxis = arr[i][j] * arr[i][j - 1] * arr[i][j - 2] * arr[i][j - 3];
+      let yAxis = arr[i][j] * arr[i - 1][j] * arr[i - 2][j] * arr[i - 3][j];
+
+      // xAxis = arr[19][19] * arr[19][18] * arr[19][17] * arr[19][16];
+      // yAxis = arr[19][19] * arr[18][19] * arr[17][19] * arr[16][19];
+
+      if (xAxis > fourInARow) {
+        fourInARow = xAxis;
+      } else if (yAxis > fourInARow) {
+        fourInARow = yAxis;
+      }
+    }
+  }
+
+  return fourInARow;
+}
+
+greatestProduct(matrix);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
