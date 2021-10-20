@@ -239,6 +239,12 @@ function greatestProduct(arr) {
   let fourInARow = 0;
   let lastLoop = 0;
 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.length !== arr[i].length) {
+      throw 'Please enter a valid matrix';
+    }
+  }
+
   for (let i = 0; i < arr.length - 3; i++) {
     for (let j = 0; j < arr[i].length - 3; j++) {
       let xAxis = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
@@ -283,6 +289,7 @@ function greatestProduct(arr) {
   return fourInARow;
 }
 
+greatestProduct(matrix);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
