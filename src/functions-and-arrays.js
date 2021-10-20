@@ -239,8 +239,8 @@ function greatestProduct(arr) {
   let fourInARow = 0;
   let lastLoop = 0;
 
-  for (let i = 0; i < arr.length - 4; i++) {
-    for (let j = 0; j < arr[i].length - 4; j++) {
+  for (let i = 0; i < arr.length - 3; i++) {
+    for (let j = 0; j < arr[i].length - 3; j++) {
       let xAxis = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
       let yAxis = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
       let dOne = arr[i][j + 3] * arr[i + 1][j + 2] * arr[i + 2][j + 1] * arr[i + 3][j];
